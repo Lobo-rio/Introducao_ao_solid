@@ -10,7 +10,7 @@ class ListAllUsersUseCase {
 
   execute({ user_id }: IRequest): User[] {
     const user = this.usersRepository.list();
-
+   
     const userAdm = user.find(user => user.id === user_id);
 
     if(userAdm.admin === false){
@@ -20,7 +20,7 @@ class ListAllUsersUseCase {
     if(!userAdm){
       throw new Error("User does not exist!");
     }
-
+    
     return user;
   }
 }
